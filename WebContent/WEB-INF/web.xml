@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Academia</display-name>
+
+ <welcome-file-list>
+  <welcome-file>index.jsp</welcome-file>
+ </welcome-file-list>
+ 
+ 
+  <servlet>
+  <servlet-name>log</servlet-name>
+  <servlet-class>org.academy.controllers.login.log</servlet-class>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>InsertCursos</servlet-name>
+  <servlet-class>org.academy.controllers.insert.InsertCursos</servlet-class>
+  </servlet>
+  <!--<servlet-mapping>
+  <servlet-name>InsertCursos</servlet-name>
+  <url-pattern>/InsertCursos</url-pattern>
+  </servlet-mapping> -->
+  
+  <servlet>
+  <servlet-name>InsertUsuarios</servlet-name>
+  <servlet-class>org.academy.controllers.insert.InsertUsuarios</servlet-class>
+  </servlet>
+
+  
+  <servlet>
+  <servlet-name>DeleteUsuarios</servlet-name>
+  <servlet-class>org.academy.controllers.delete.DeleteUsuarios</servlet-class>
+  </servlet>
+ 
+  
+  <servlet>
+  <servlet-name>DeleteCursos</servlet-name>
+  <servlet-class>org.academy.controllers.delete.DeleteCursos</servlet-class>
+  </servlet>
+
+  <servlet>
+  <servlet-name>UpdateCursos</servlet-name>
+  <servlet-class>org.academy.controllers.update.UpdateCursos</servlet-class>
+  </servlet>
+
+  
+  <servlet>
+  <servlet-name>UpdateUsuarios</servlet-name>
+  <servlet-class>org.academy.controllers.update.UpdateUsuarios</servlet-class>
+  </servlet>
+
+</web-app>
