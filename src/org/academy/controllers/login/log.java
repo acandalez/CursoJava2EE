@@ -51,7 +51,7 @@ public class log extends HttpServlet {
 		    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/academia", "root", "123456");
 		   	Statement st = con.createStatement();
 		   	ResultSet rs;
-			rs =  st.executeQuery("SELECT user, pass FROM usuarios WHERE user='" + user + "' AND pass='" + pass + "';");
+			rs =  st.executeQuery("SELECT user, pass FROM ficha_alumnos WHERE user='" + user + "' AND pass='" + pass + "';");
 			
 			if (rs.next()) {
 	

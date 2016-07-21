@@ -53,9 +53,10 @@ public class InsertUsuarios extends HttpServlet {
 		    String apellidos = request.getParameter("apellidos");
 		    String correo = request.getParameter("correo");
 		    String pass = request.getParameter("pass");
+		    String rol = request.getParameter("rol");
 		    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/academia", "root", "123456");
 		   	Statement st = con.createStatement();
-			int i =  st.executeUpdate("INSERT INTO ficha_alumnos (user, nombre, apellidos, correo_electronico, pass) VALUES ('"+ user +"','"+ nombre +"', '"+apellidos+"', '"+correo+"', '"+pass+"') ;");
+			int i =  st.executeUpdate("INSERT INTO ficha_alumnos (user, nombre, apellidos, correo_electronico, pass, rol) VALUES ('"+ user +"','"+ nombre +"', '"+apellidos+"', '"+correo+"', '"+pass+"', '"+ rol +"') ;");
 			
 			if (i > 0) {
 				System.out.println("estoy dentro de if");

@@ -63,9 +63,10 @@ public class InsertCursos extends HttpServlet {
 		    String numeroHoras = request.getParameter("numeroHoras");
 		    String objetivos = request.getParameter("objetivos");
 		    String requisitos = request.getParameter("requisitos");
+		    String rol = request.getParameter("rol");
 		    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/academia", "root", "123456");
 		   	Statement st = con.createStatement();
-			int i =  st.executeUpdate("INSERT INTO cursos (codigo_curso, nombre, descripcion, fecha_inicio, fecha_fin, numero_horas, objetivos, requisitos) VALUES ('"+ codigo + nombre +"','"+ descripcion +"', '"+ fechaInicio +"', '"+ fechaFin +"', '"+ numeroHoras +"', '"+ objetivos +"', '"+ requisitos +"') ;");   
+			int i =  st.executeUpdate("INSERT INTO cursos (codigo_curso, nombre, descripcion, fecha_inicio, fecha_fin, numero_horas, objetivos, requisitos, rol) VALUES ('"+ codigo + nombre +"','"+ descripcion +"', '"+ fechaInicio +"', '"+ fechaFin +"', '"+ numeroHoras +"', '"+ objetivos +"', '"+ requisitos +"', '"+ rol +"') ;");   
 			
 			if (i > 0) {	
     			//this.getServletContext().getRequestDispatcher("/cursos.jsp").forward(request, response);
