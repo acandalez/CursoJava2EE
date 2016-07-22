@@ -32,7 +32,7 @@
 					Alumnos <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="#altauser" data-toggle="tab">Altas</a></li>
-					<li><a href="#bajauser" data-toggle="tab">Bajas</a></li>
+					<li><a href="#bajauser" id="btnBajaUser" data-toggle="tab">Bajas</a></li>
 					<li><a href="#updateuser" data-toggle="tab">Editar Perfil
 							del Alumno</a></li>
 					<li><a href="#finduser" data-toggle="tab">Buscar Ficha del
@@ -123,18 +123,40 @@
 				</form>
 			</div>
 			<div id="bajauser" class="tab-pane fade">
-				<form action="${pageContext.request.contextPath}/DeleteUsuarios"
+				<div class="col-md-8"  style="padding-top: 30px;">
+					<form>
+						<fieldset>
+							<legend>Baja de Usuarios</legend>
+								<table class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>&nbsp;ID&nbsp;</th>
+											<th>&nbsp;Usuario&nbsp;</th>
+											<th>&nbsp;Nombre&nbsp;</th>
+											<th>&nbsp;Apellidos&nbsp;</th>
+											<th>&nbsp;Correo electrónico&nbsp;</th>
+											<th>&nbsp;Pass&nbsp;</th>
+											<th>&nbsp;Rol&nbsp;</th>
+										</tr>
+									</thead>
+									<tbody id="datosUserDelete"></tbody>
+								</table>
+							</fieldset>
+					</form>
+					</div>
+			
+			<!-- 	<form action="${pageContext.request.contextPath}/DeleteUsuarios"
 					name="baja" method="post" style="padding-top: 30px;">
 					<fieldset>
 						<legend>Baja de usuarios</legend>
 						<div class="form-group">
 							<label for="user">Nombre Usuario &nbsp;</label><input
-								class="form-control" type="text" name="user" />
+								class="form-control" type="text" name="user" required />
 							<p>
 						</div>
 						<div class="form-group">
-							<label for="pass">Clave&nbsp;</label><input class="form-control"
-								type="text" name="pass" />
+							<label for="id">ID&nbsp;</label><input class="form-control"
+								type="text" name="id" required />
 							<p>
 						</div>
 						<div class="form-group">
@@ -142,7 +164,7 @@
 								type="submit" value="Enviar" name="enviar" /></label>
 						</div>
 					</fieldset>
-				</form>
+				</form> -->
 			</div>
 			<div id="updateuser" class="tab-pane fade">
 
@@ -442,6 +464,20 @@
 														
 
 							});
+			//Queremos que nos muestre la lista de usuarios para dar de baja.
+			$("#btnBajaUser")
+			.on(
+					"click",
+					function() {
+						$
+								.post(
+										"${pageContext.request.contextPath}/datosUsuarios.jsp",
+										function(data){
+													$("#datosUserDelete").html(data);
+												});
+												
+
+					});
 		</script>
 </body>
 </html>
