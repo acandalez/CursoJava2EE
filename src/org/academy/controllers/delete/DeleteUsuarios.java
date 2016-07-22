@@ -51,10 +51,10 @@ public class DeleteUsuarios extends HttpServlet {
 						
 						
 						String user = request.getParameter("user");    
-					    String pass = request.getParameter("pass");
+					    String id = request.getParameter("id");
 					    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/academia", "root", "123456");
 					   	Statement st = con.createStatement();
-						int i =  st.executeUpdate("DELETE FROM usuarios WHERE user='"+user+"' AND pass='"+pass+"';");   
+						int i =  st.executeUpdate("DELETE FROM usuarios WHERE user='"+user+"' AND id='"+id+"';");   
 						
 						if (i > 0) {	
 			    			//this.getServletContext().getRequestDispatcher("/panelcontrol.jsp#bajauser").forward(request, response);

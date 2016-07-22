@@ -195,40 +195,42 @@
 			</div>
 			<div id="finduser" class="tab-pane fade">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-8" >
 						<form name="busqueda" method="post" style="padding-top: 30px;">
 							<fieldset>
 								<legend>Busqueda de usuarios</legend>
-								<div class="form-group">
+								<div class="row">
+								<div class="form-group col-xs-4">
 									<label for="user">Nombre Usuario &nbsp;</label><input
-										class="form-control" type="text" name="user" />
+										class="form-control" type="text" name="user" id="user" />
 									<p>
 								</div>
-								<div class="form-group">
+								<div class="form-group col-xs-4">
 									<label for="nombre">Nombre&nbsp;</label><input
-										class="form-control" type="text" name="nombre" />
+										class="form-control" type="text" name="nombre" id="nombre" />
 									<p>
 								</div>
-								<div class="form-group">
+								<div class="form-group col-xs-4">
 									<label for="apellidos">Apellidos&nbsp;</label><input
-										class="form-control" type="text" name="apellidos" />
+										class="form-control" type="text" name="apellidos" id="apellidos"/>
 									<p>
 								</div>
-								<div class="form-group">
+								<div class="form-group col-xs-4">
 									<label for="correo">Correo electrónico&nbsp;</label><input
-										class="form-control" type="email" name="correo" />
+										class="form-control" type="email" name="correo" id="correo"/>
 									<p>
 								</div>
 
-								<div class="row">
-									<div class="form-group col-xs-6">
+								
+									<div class="form-group col-xs-4">
 										<label for="pass">Clave&nbsp;</label><input
-											class="form-control" type="text" name="pass" />
+											class="form-control" type="text" name="pass" id="pass"/>
 										<p>
 									</div>
-									<div class="form-group col-xs-6">
-										<label>Seleccione Tipo de Usuario</label> <select id="rol"
-											name="rol" class="form-control">
+									<div class="form-group col-xs-4">
+										<label>Tipo de Usuario</label> <select 
+											name="rol" class="form-control" id="rolfind">
+											<option value= "-1" selected>Seleccione Rol</option>
 											<option value="Administrador">Administrador</option>
 											<option value="Alumno">Alumno</option>
 											<option value="Profesor">Profesor</option>
@@ -244,7 +246,7 @@
 							</fieldset>
 						</form>
 					</div>
-					<div class="col-md-6" style="padding-top: 30px;">
+					<div class="col-md-8"  style="padding-top: 30px;">
 						<table class="table table-bordered table-hover">
 							<thead>
 								<tr>
@@ -262,8 +264,8 @@
 					</div>
 
 
-				
-
+				</div>
+			</div>
 				<!--Panel de Cursos -->
 				<div id="altacursos" class="tab-pane fade">
 
@@ -311,7 +313,7 @@
 						</fieldset>
 					</form>
 				</div>
-				<div id="bajauser" class="tab-pane fade">
+				<div id="bajacurso" class="tab-pane fade">
 					<form action="${pageContext.request.contextPath}/DeleteCursos"
 						name="baja" method="post">
 						<fieldset>
@@ -333,7 +335,7 @@
 						</fieldset>
 					</form>
 				</div>
-				<div id="updateuser" class="tab-pane fade">
+				<div id="updatecurso" class="tab-pane fade">
 
 					<form action="${pageContext.request.contextPath}/UpdateCursos"
 						name="modifiacion" method="post">
@@ -410,7 +412,7 @@
 					</div>
 				</div>
 			</div>
-		</div></div>
+		</div>
 		<script>
 			$("#find")
 					.on(
@@ -420,17 +422,24 @@
 								var nombre = $("#nombre").val();
 								var apellidos = $("#apellidos").val();
 								var correo = $("#correo").val();
+								var pass = $("#pass").val();
+								var rol = $("#rolfind").val();
+								console.log("rol: "	+ rol);
+								var paramPost = {user:user,
+										nombre:nombre,
+										apellidos:apellidos,
+										correo:correo,
+										pass:pass,
+										rol:rol};console.log(paramPost);
 
 								$
 										.post(
 												"${pageContext.request.contextPath}/datosUsuarios.jsp",
-												"{user:" + user + ", nombre:"
-														+ nombre
-														+ ", apellidos:"
-														+ apellidos
-														+ ", correo:" + correo
-														+ ", pass:" + pass
-														+ ", rol:" + rol + "}");
+												paramPost,
+												function(data){
+															$("#datosUser").html(data);
+														});
+														
 
 							});
 		</script>
