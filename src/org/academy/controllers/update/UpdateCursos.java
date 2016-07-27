@@ -67,11 +67,11 @@ public class UpdateCursos extends HttpServlet {
 				int i = st.executeUpdate("UPDATE cursos SET nombre='"+ nombre +"', descripcion='"+ descripcion +"', fecha_inicio='"+fechaInicio+"', fecha_fin='"+ fechaFin +"', numero_horas='"+ numeroHoras +"', objetivos='"+ objetivos +"' requisitos='"+ requisitos +"',  WHERE id='"+ id +"'; ");   
 				
 				if (i > 0) {	
-	    			this.getServletContext().getRequestDispatcher("/usuarios.jsp").forward(request, response);
+					response.sendRedirect("/Academia/jsp/panelcontrol.jsp#updatecursos");
 	    			
 			    } else {
 			    	
-			    	this.getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);
+			    //	this.getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);
 			    	
 			    }
 				}catch(SQLException e){

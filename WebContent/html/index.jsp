@@ -1,31 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.Properties" import="javax.servlet.http.HttpSession"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page  import="javax.servlet.http.HttpSession, java.util.Properties" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CAS Training Project - Inicio</title>
-</head>
-<body style="margin= auto, 0;"">
-<!-- Pagina de Inicio -->
-<form action="Login" method="post">
-		<fieldset style="width: 300px">
-			<legend> Acceso Alumnos </legend>
-			<table>
-				<tr>
-					<td>Usuario</td>
-					<td><input type="text" name="user" required="required" /></td>
-				</tr>
-				<tr>
-					<td>Contraseña</td>
-					<td><input type="password" name="password" required="required" /></td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="Acceder" /></td>
-				</tr>
-			</table>
-		</fieldset>
-	</form>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-sacle=1"/>
+		
+		
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet"/>
+		<link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/readable/bootstrap.min.css" rel="stylesheet"/>
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesone/4.6.3/css/font-awesone.min.css" rel="stylesheet"/>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+		
+		<title>Práctica login Password </title>
+		
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js"> </script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"> </script>
+	</head>
+	<body>
+			<div align="center">
+			<form action="log" name="formulario" method="post">
+				<fieldset>
+					<legend>Acceso usuarios registrados</legend>
+						<label for="user">Login &nbsp;</label><input type="text" name="user" required/><p>
+						<label for="pass">Password&nbsp;</label><input type="password" name="pass" required/><p>
+						<label for="enviar"><input type="submit" value="Enviar" name="enviar" /></label>
+				</fieldset>
+			</form>
+			</div>
+			
+	</body>
 </html>

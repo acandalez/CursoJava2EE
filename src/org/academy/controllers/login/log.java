@@ -58,10 +58,10 @@ public class log extends HttpServlet {
     				HttpSession session = request.getSession();
     			//	String usuario = (String)request.getAttribute("login");
     				session.setAttribute("user", user);
-    				this.getServletContext().getRequestDispatcher("/panelcontrol.jsp").forward(request, response);
+    				this.getServletContext().getRequestDispatcher("/jsp/panelcontrol.jsp").forward(request, response);
     				
 		    } else {
-		    	this.getServletContext().getRequestDispatcher("/fallo.jsp").forward(request, response);
+		    	this.getServletContext().getRequestDispatcher("/jsp/fallo.jsp").forward(request, response);
 		        
 		    }
 			}catch(SQLException e){

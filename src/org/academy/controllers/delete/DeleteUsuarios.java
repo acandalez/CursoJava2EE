@@ -51,14 +51,14 @@ public class DeleteUsuarios extends HttpServlet {
 						
 						
 						String user = request.getParameter("user");    
-					    String id = request.getParameter("id");
+					    
 					    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/academia", "root", "123456");
 					   	Statement st = con.createStatement();
-						int i =  st.executeUpdate("DELETE FROM ficha_alumnos WHERE user='"+user+"' AND id='"+id+"';");   
+						int i =  st.executeUpdate("DELETE FROM ficha_alumnos WHERE user='"+user+"';");   
 						
 						if (i > 0) {	
 			    			//this.getServletContext().getRequestDispatcher("/panelcontrol.jsp#bajauser").forward(request, response);
-							response.sendRedirect("/Academia/panelcontrol.jsp#bajauser");//emitimos una respuesta
+							response.sendRedirect("/Academia/jsp/panelcontrol.jsp#bajauser");//emitimos una respuesta
 					    } else {
 					    	
 					    	//this.getServletContext().getRequestDispatcher("/Academia/panelcontrol.jsp").forward(request, response);

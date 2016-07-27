@@ -56,25 +56,23 @@ public class InsertCursos extends HttpServlet {
 				}
 				
 			String nombre = request.getParameter("nombre");
-			String codigo = request.getParameter("codigo"); 
-		    String descripcion = request.getParameter("descripcion");
+			String descripcion = request.getParameter("descripcion");
 		    String fechaInicio = request.getParameter("fechaInicio");
 		    String fechaFin = request.getParameter("fechaFin");
 		    String numeroHoras = request.getParameter("numeroHoras");
 		    String objetivos = request.getParameter("objetivos");
 		    String requisitos = request.getParameter("requisitos");
-		    String rol = request.getParameter("rol");
 		    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/academia", "root", "123456");
 		   	Statement st = con.createStatement();
-			int i =  st.executeUpdate("INSERT INTO cursos (codigo_curso, nombre, descripcion, fecha_inicio, fecha_fin, numero_horas, objetivos, requisitos, rol) VALUES ('"+ codigo + nombre +"','"+ descripcion +"', '"+ fechaInicio +"', '"+ fechaFin +"', '"+ numeroHoras +"', '"+ objetivos +"', '"+ requisitos +"', '"+ rol +"') ;");   
+			int i =  st.executeUpdate("INSERT INTO cursos (nombre, descripcion, fecha_inicio, fecha_fin, numero_horas, objetivos, requisitos) VALUES ('" +nombre +"','"+ descripcion +"', '"+ fechaInicio +"', '"+ fechaFin +"', '"+ numeroHoras +"', '"+ objetivos +"', '"+ requisitos +"') ;");   
 			
 			if (i > 0) {	
     			//this.getServletContext().getRequestDispatcher("/cursos.jsp").forward(request, response);
-    			response.sendRedirect("/Academia/panelcontrol.jsp#altacurso");
+				response.sendRedirect("/Academia/jsp/panelcontrol.jsp#altacursos");
     			
 		    } else {
 		    	
-		    	this.getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);
+		    //	this.getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);
 		    	
 		    }
 			}catch(SQLException e){

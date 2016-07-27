@@ -65,10 +65,10 @@ public class UpdateUsuarios extends HttpServlet {
 			
 			if (i > 0) {	
     			//this.getServletContext().getRequestDispatcher("/panelcontrol.jsp#updateuser").forward(request, response);
-				response.sendRedirect("/Academia/panelcontrol.jsp#updateuser");
+				response.sendRedirect("/Academia/jsp/panelcontrol.jsp#altauser");
 		    } else {
 		    	
-		    	this.getServletContext().getRequestDispatcher("/panelcontrol.jsp").forward(request, response);
+		    //	this.getServletContext().getRequestDispatcher("/panelcontrol.jsp").forward(request, response);
 		    	
 		    }
 			}catch(SQLException e){

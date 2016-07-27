@@ -61,7 +61,7 @@ public class InsertUsuarios extends HttpServlet {
 			if (i > 0) {
 				System.out.println("estoy dentro de if");
     			//this.getServletContext().getRequestDispatcher("/panelcontrol.jsp#altauser").forward(request, response);
-				response.sendRedirect("/Academia/panelcontrol.jsp#altauser");//emitimos una respuesta
+				response.sendRedirect("/Academia/jsp/panelcontrol.jsp#altauser");//emitimos una respuesta
     			
 		    } else {
 		    	
