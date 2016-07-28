@@ -46,11 +46,11 @@
 					de Cursos <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a data-toggle="tab" href="#altacursos">Altas</a></li>
-					<li><a data-toggle="tab" href="#menu2">Bajas</a></li>
+					<li><a data-toggle="tab" href="#bajacursos" id="btnBajaCurso">Bajas</a></li>
 					<li><a data-toggle="tab" href="#menu3">Editar Cursos</a></li>
 					<li><a data-toggle="tab" href="#findcurso">Buscar Cursos</a></li>
 				</ul></li>
-			<li><a data-toggle="tab" href="#menu2"><i
+			<li><a  href="logout.jsp"><i
 					class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Cerrar
 					Sesión</a></li>
 
@@ -69,7 +69,7 @@
 			</div>
 			<!-- Panel de Usuarios -->
 			<div id="altauser" class="tab-pane fade">
-
+			<div class="col-md-8"  style="padding-top: 30px;">
 				<form role="form"
 					action="${pageContext.request.contextPath}/InsertUsuarios"
 					name="alta" method="post" style="padding-top: 30px;"
@@ -122,24 +122,20 @@
 						</div>
 					</fieldset>
 				</form>
-			</div>
+			</div></div>
 			<div id="bajauser" class="tab-pane fade">
 				<div class="col-md-8"  style="padding-top: 30px;">
 					
 					<form 
 					name="baja" method="post" style="padding-top: 30px;">
 					<fieldset>
-						
+						<legend>Baja de Usuarios</legend>
 						<div class="form-group">
 							<label for="user">Nombre Usuario &nbsp;</label><input
-								class="form-control" type="text" name="user" required />
+								class="form-control" type="text" name="user" id="user" required />
 							<p>
 						</div>
-						<div class="form-group">
-							<label for="id">ID&nbsp;</label><input class="form-control"
-								type="text" name="id" required />
-							<p>
-						</div>
+						
 						<div class="form-group">
 							<label for="enviar">
 							<button type="button" class="btn btn-default" id="delete">Enviar</button>
@@ -164,6 +160,7 @@
 										</tr>
 									</thead>
 									<tbody id="datosUserDelete"></tbody>
+									
 									
 								</table>
 							</fieldset>
@@ -248,34 +245,34 @@
 								<div class="row">
 								<div class="form-group col-xs-4">
 									<label for="user">Nombre Usuario &nbsp;</label><input
-										class="form-control" type="text" name="user" id="user" />
+										class="form-control" type="text" name="user" id="fuser" />
 									<p>
 								</div>
 								<div class="form-group col-xs-4">
 									<label for="nombre">Nombre&nbsp;</label><input
-										class="form-control" type="text" name="nombre" id="nombre" />
+										class="form-control" type="text" name="nombre" id="fnombre" />
 									<p>
 								</div>
 								<div class="form-group col-xs-4">
 									<label for="apellidos">Apellidos&nbsp;</label><input
-										class="form-control" type="text" name="apellidos" id="apellidos"/>
+										class="form-control" type="text" name="apellidos" id="fapellidos"/>
 									<p>
 								</div>
 								<div class="form-group col-xs-4">
 									<label for="correo">Correo electrónico&nbsp;</label><input
-										class="form-control" type="email" name="correo" id="correo"/>
+										class="form-control" type="email" name="correo" id="fcorreo"/>
 									<p>
 								</div>
 
 								
 									<div class="form-group col-xs-4">
 										<label for="pass">Clave&nbsp;</label><input
-											class="form-control" type="text" name="pass" id="pass"/>
+											class="form-control" type="text" name="pass" id="fpass"/>
 										<p>
 									</div>
 									<div class="form-group col-xs-4">
 										<label>Tipo de Usuario</label> <select 
-											name="rol" class="form-control" id="rolfind">
+											name="rol" class="form-control" id="frolfind">
 											<option value= "-1" selected>Seleccione Rol</option>
 											<option value="Administrador">Administrador</option>
 											<option value="Alumno">Alumno</option>
@@ -355,27 +352,41 @@
 						</fieldset>
 					</form>
 				</div>
-				<div id="bajacurso" class="tab-pane fade">
-					<form action="${pageContext.request.contextPath}/DeleteCursos"
-						name="baja" method="post">
+				<div id="bajacursos" class="tab-pane fade">
+					<div class="col-md-8"  style="padding-top: 30px;">
+					<form 
+						name="baja" >
 						<fieldset>
-							<legend>Baja de usuarios</legend>
+							<legend>Baja de Cursos</legend>
 							<div class="form-group">
-								<label for="login">Nombre Usuario &nbsp;</label><input
-									class="form-control" type="text" name="nombreUsuario" />
+								<label for="login">Nombre del Curso &nbsp;</label><input
+									class="form-control" type="text" name="dcnombre" id="dcnombre" />
 								<p>
 							</div>
 							<div class="form-group">
-								<label for="password">Clave&nbsp;</label><input
-									class="form-control" type="text" name="clave" />
-								<p>
-							</div>
-							<div class="form-group">
-								<label for="enviar"><input class="btn btn-default"
-									type="submit" value="Enviar" name="enviar" /></label>
-							</div>
-						</fieldset>
-					</form>
+										<label for="enviar"><button type="button" class="btn btn-default" id="Cdelete">Enviar</button></label>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+						<div class="col-md-8"  style="padding-top: 30px;">
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>&nbsp;ID&nbsp;</th>
+									<th>&nbsp;Nombre&nbsp;</th>
+									<th>&nbsp;Descripcion&nbsp;</th>
+									<th>&nbsp;Fecha de Inicio &nbsp;</th>
+									<th>&nbsp;Fecha de Fin&nbsp;</th>
+									<th>&nbsp;Numero de Horas&nbsp;</th>
+									<th>&nbsp;Objetivos&nbsp;</th>
+									<th>&nbsp;Requisitos&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody id="datosCursosDelete"></tbody>
+						</table>
+					</div>
+						
 				</div>
 				<div id="updatecurso" class="tab-pane fade">
 
@@ -424,7 +435,7 @@
 									<legend>Busqueda de Cursos</legend>
 									<div class="form-group">
 										<label for="nombre">Nombre del Curso &nbsp;</label><input
-											class="form-control" type="text" name="nombre" id="nombrecurso" />
+											class="form-control" type="text" name="nombre" id="fcnombrecurso" />
 										<p>
 									</div>
 									
@@ -468,12 +479,12 @@
 		$("#find").on(
 				"click",
 				function() {
-					var user = $("#user").val();
-					var nombre = $("#nombre").val();
-					var apellidos = $("#apellidos").val();
-					var correo = $("#correo").val();
-					var pass = $("#pass").val();
-					var rol = $("#rolfind").val();
+					var user = $("#fuser").val();
+					var nombre = $("#fnombre").val();
+					var apellidos = $("#fapellidos").val();
+					var correo = $("#fcorreo").val();
+					var pass = $("#fpass").val();
+					var rol = $("#frolfind").val();
 					console.log("rol: " + rol);
 					var paramPost = {
 						user : user,
@@ -516,7 +527,7 @@
 
 							$
 									.post(
-											"${pageContext.request.contextPath}/DeleteUsuarios",
+											"${pageContext.request.contextPath}/jsp/controller/deleteUsuarios.jsp",
 											paramPost, function(data) {
 												$("#datosUserDelete").html(data);
 											});
@@ -534,13 +545,50 @@
 
 				});
 		
+		//CRUD Cursos:
 		
+		//ALTA
+		
+		
+		
+		//DELETE
+		
+		$("#btnBajaCurso").on(
+				"click",
+				function() {
+					$.post("${pageContext.request.contextPath}/jsp/controller/datosCursos.jsp",
+							function(data) {
+								$("#datosCursosDelete").html(data);
+							});
+
+				});
+		$("#Cdelete")
+				.on(
+						"click",
+						function() {
+							var dcnombre = $("#dcnombre").val();
+
+							var paramPost = {
+								dcnombre : dcnombre
+							};
+							console.log(paramPost);
+
+							$
+									.post(
+											"${pageContext.request.contextPath}/jsp/controller/deleteCursos.jsp",
+											paramPost, function(data) {
+												$("#datosCursosDelete").html(data);
+											});
+
+						});
+		
+		//UPDATE
 		
 		// Buscar Cursos
 		$("#findCursos").on(
 				"click",
 				function() {
-					var nombre = $("#nombre").val();
+					var nombre = $("#fcnombrecurso").val();
 					var descripcion = $("#descripcion").val();
 					var fecha_inicio = $("#fecha_inicio").val();
 					var fecha_fin = $("#fecha_fin").val();

@@ -3,11 +3,11 @@
 
 <%
 //String id =  request.getParameter("id");
-String user = request.getParameter("user");System.out.println("User: " + user);
+String dcnombre = request.getParameter("dcnombre");System.out.println("Nombre del curso eliminado: " + dcnombre);
 
 try {
 	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/academia", "root", "123456");
-	String sqlQry = "delete from ficha_alumnos where user = '" + user + "'";
+	String sqlQry = "delete from cursos where nombre = '" + dcnombre + "'";
 
 	System.out.println("Consulta SQL: "+sqlQry);
 	
@@ -20,22 +20,23 @@ try {
     rs = pst.executeUpdate();//estro es para actualizar ya que devuelve el numero de filas afectadas por esto.
     System.out.println(rs);
 
-	sqlQry = "select id, user, nombre, apellidos, correo_electronico, pass, rol ";
-	sqlQry += "from ficha_alumnos ";
+	sqlQry = "select id, nombre, descripcion, fecha_inicio, fecha_fin, numero_horas, objetivos, requisitos ";
+	sqlQry += "from cursos ";
 	pst2 = con.prepareStatement(sqlQry);
 	rs2=pst2.executeQuery();
      while(rs2.next()) {
     	
-        out.println("<TR>");
-        out.println("<TD>"+rs2.getString("id")+"</TD>");
-        out.println("<TD>"+rs2.getString("user")+"</TD>");
-        out.println("<TD>"+rs2.getString("nombre")+"</TD>");
-        out.println("<TD>"+rs2.getString("apellidos")+"</TD>");
-        out.println("<TD>"+rs2.getString("correo_electronico")+"</TD>");
-        out.println("<TD>"+rs2.getString("pass")+"</TD>");
-        out.println("<TD>"+rs2.getString("rol")+"</TD>");
-     
-        out.println("</TR>"); 
+    	 out.println("<TR>");
+         out.println("<TD>"+rs2.getString("id")+"</TD>");
+         out.println("<TD>"+rs2.getString("nombre")+"</TD>");
+         out.println("<TD>"+rs2.getString("descripcion")+"</TD>");
+         out.println("<TD>"+rs2.getString("fecha_inicio")+"</TD>");
+         out.println("<TD>"+rs2.getString("fecha_fin")+"</TD>");
+         out.println("<TD>"+rs2.getString("numero_horas")+"</TD>");
+         out.println("<TD>"+rs2.getString("objetivos")+"</TD>");
+         out.println("<TD>"+rs2.getString("requisitos")+"</TD>");
+      
+         out.println("</TR>"); 
     } 
 }catch(SQLException e) {};
     %> 
